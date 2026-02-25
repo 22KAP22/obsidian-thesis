@@ -1,0 +1,9 @@
+DuckDB is an Open Source Database Engine. It is meant to store the tables in-memory for fast retrieval. The option to store the database on a drive exists. If I understood it correctly the stuff is stored inside the package realm, so any script that is run by an interpreter inside this realm should be able to access the data. Seems like a convenient way to share data between applications, if they're being run in the same environment.
+
+There is no easy way to integrate the .fvecs files into the database, so I had to transform them into a file that can easily import them. I used the read function to first turn the data into ndarrays and then exported them as a parquet file using pandas. In the end the data format was still somewhat wrong so I had to create a new table by hand and specify the correct data type myself. But simply 'reading' the data from the other table with the wrong data type worked out perfectly. It seems that DuckDB only supports the flat HNSW index. They use uSearch (https://github.com/unum-cloud/usearch?tab=readme-ov-file) a light-weight, high-performing HNSW library. Apparently a lot faster than the FAISS implementation.
+
+DuckDB doesn't provide any way to encode/transform the vectors. It simply takes what it is given and creates a HNSW index on command. Everything else needs to be before inserting into the system, so no PQ, PCA, any other kind of encoding/transformation.
+
+I think I can use inbuilt timers to measure the execution time. Though I would also need to put the query vectors into the database, such that everything resides in RAM. Then from there on I should use a LATERAL JOIN to do 'batched search' (This suggestion was made by chatGPT). The idea is that no python overhead is included in the measurement, only the vector search timing.
+
+--Still need to look into the codebase--

@@ -1,0 +1,5 @@
+- [ ] Decide on hardware
+- [ ] Choose datasets
+- [ ] Write program that executes benchmarks (simple)
+- [ ] Extend program, make it modular, but by hand (little advanced)
+- [ ] Extend further, make it adaptable to environment (advanced)

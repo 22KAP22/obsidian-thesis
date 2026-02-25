@@ -1,0 +1,4 @@
+- [x] Create this task note
+- [ ] [[Check out PDX for graphs]]
+- [ ] [[remote/Tasks/Benchmarking|Benchmarking]]
+- [ ] 

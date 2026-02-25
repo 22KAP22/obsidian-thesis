@@ -1,0 +1,4 @@
+(https://arxiv.org/abs/2205.13147) (https://github.com/RAIVNLab/MRL)
+Matryoshka is an embedding technique which aims to produce multi resolution vectors(is this an expression?). The lower dimensionality vectors can then be used to speed up early search and prune vectors which clearly aren't candidates for nearest neighbors. This step can then be recursively done until hitting the highest resolution/dimension vector, which should be the full-precision vector, with which we would do normal search, but the candidate set should be very small.
+
+I am not sure on what this is trained. Apparently it is intended for image embeddings, so I don't know how it works if we already have vectors to begin with (Maybe transform vectors into an image and then feed them into the model?). 

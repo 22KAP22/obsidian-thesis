@@ -1,0 +1,3 @@
+I looked into [[ADSampling]]. Now let's see how it is implemented in the PDX library.
+
+Not done much. PDX relies heavily on FFTW and Eigen to do the calculations. Interestingly they do DCT (Discrete Cosine Transformation) on the data if FFTW is supported. This is the signal transformation of images(?). I guess this replaces the random projection matrix? Not sure what the idea behind this move is, but I assume the energy of the vectors will be mapped to the first few dimensions leading to earlier pruning, if that's the case.

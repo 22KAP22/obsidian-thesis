@@ -1,0 +1,6 @@
+We will probably use the computers from the systems group, since we are allowed to use the entire machine during benchmarking. This means use as much RAM as necessary and isolated measurements. It's unclear how the euler cluster handles this kind of stuff. Sure the cluster is great to do computations, but I need consistency. The only problem is the booking mechanism. I can only use the computers with CPUs supporting AVX512. I need to stick to that system or redo all the computations when I switch...
+
+
+Euler Cluster unclear if the CPU I need is always available and also unclear how much resources I'm allowed to use.
+
+Next task is to finally do these measurements of the existing methods.... We will start with easy stuff like vanilla IVF and compare it with PDX. We will also introduce PQ8, SQ8, etc. and test the pdx and faiss implementation respectively. I have a hard understanding how to control the recall. There is a 'nprobe' variable that chooses the amount of vectors to be considered if I'm not mistaken. This will in the end produce better results, since it scans more variables trading efficiency. But I don't know how this variable translates to a concrete recall value for example. All I know is that bigger nprobe -> better recall.

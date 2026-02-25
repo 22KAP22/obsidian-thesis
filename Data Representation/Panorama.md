@@ -1,0 +1,3 @@
+Panorama is a method to concentrate the Energy of vectors in a dataset in its first dimensions by a length preserving transformation(if I'm not mistaken). The goal is to prune vectors early during search by inspecting the first few dimensions. Since these hold the most energy (Most energy in first dimension with exponential decay) it should be very early on clear if a vector is somewhat close or far away of a query during search.
+
+This is done by training a model which finds this matrix given a dataset. The starting point is the PCA of the dataset to be transformed.

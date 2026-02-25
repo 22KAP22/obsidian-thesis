@@ -1,0 +1,7 @@
+Make PDX library work with faiss...
+
+Okay, it seems to be running. Maybe I should have simply restarted my PC or even VSCode for it to work yesterday... Anyway, we see that using Intel SDE to emulate the stuff makes it go veeeeeeeeery slow. Using the values that were there in the beginning prompted Linux to kill the process, since it used too much memory. Looking at the results with smaller numbers we see that PDX takes almost 3.5x longer than the FAISS implementation, which should be faster. I think. Not sure, I think PDX is only faster when there are a lot of Dimensions to consider. Maybe 128 aren't enough. Anyway assuming that the Intel SDE let's all instructions except the AVX512 run natively, it makes sense that PDX takes much longer, since the distance calculation for the pruning is done with AVX512 instructions, where as the FAISS implementation probably doesn't have any of them, since the library was compiled assuming a ryzen 6000series architecture.
+
+Next step would be to play around with it a little bit and then think about how we could introduce PDX in HNSW. Benchmarking is a topic for another time, since I don't know yet on which machine I should be doing this.
+
+PDX library is more complicated than anticipated. Need quite some time to figure out how things are connected and where I would need to write my implementation for HNSW.

@@ -1,0 +1,3 @@
+Today we downloaded all the datasets . Used rclone for that. Pretty neat tool.
+
+I will run the pdx benchmarks afterwards. Then the faiss ones. I will compare similar experiments and see if there are noticeable differences. I'll also try to run to use the faiss datasets on pdx and vice versa. In the end I think it makes sense to create my own benchmark-suite. The reason being that I know best what I created myself. This way I get max control on how I run these experiments. It will probably be more lightweight than the ones from pdx and faiss, but that doesn't matter too much, I hope...

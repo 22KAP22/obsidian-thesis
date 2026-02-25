@@ -1,0 +1,10 @@
+- [x] Read article/paper
+- [ ] Search for abstract data layouts which PDX might improve (smart grouping of nodes)
+- [x] Search for pruning algorithms in graph based setting (IVF one works here too?)
+- I think we're gonna stick to whatever the PDX guys used.
+- [x] Choose searching algorithm (I thinks this highly depends on pruning algorithm)
+- Same as above
+- [ ] Install PDX for IVF
+- [ ] Play around with PDX for IVF and try to understand code
+- Currently at the understanding part before installing
+- [ ] Naive implementation for graph-based (all neighbors next to each other) (super simple first)

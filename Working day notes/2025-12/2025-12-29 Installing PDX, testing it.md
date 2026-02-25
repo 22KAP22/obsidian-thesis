@@ -1,0 +1,3 @@
+Today I'll try to install PDX and play around with it. I will only try out the stuff that is already implemented and then look into the code to see how I could possible introduce support for graph based approaches. The first one (and maybe only one) will be HNSW, since this is apparently the state-of-the-art graph-based index used by today's systems.
+
+Currently having issues with installing PDX. I noticed it needs a python version 3.11+, but I have 3.10.19 installed. I don't know if this leads the issues. For some reason the code is mismatched. There is code that makes calls to functions with too many arguments. So either the code is not properly updated or I cloned something wrong.

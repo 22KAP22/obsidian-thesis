@@ -1,0 +1,3 @@
+Today we'll look into how PDX is implemented. The goal is to understand what's going on under the hood in order to come up with ideas how to use the mechanisms for HNSW.
+
+Reading the ADSampling Paper. Interesting to see how and why it works. If I'm not mistaken it's a pruning technique. It eliminates vectors during search by inspecting just a few dimensions instead of all leading to faster distance comparisons to the query.

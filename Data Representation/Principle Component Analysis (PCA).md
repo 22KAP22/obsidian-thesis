@@ -1,0 +1,6 @@
+(Wiki article: https://en.wikipedia.org/wiki/Principal_component_analysis)
+Good ol' PCA. Extract the biggest variance(in terms of directions of the dataset) of the dataset and take it as first component/new coordinate. Next step do it for second biggest variance. etc.
+
+This is done by first subtracting the mean of the values, such that the data is centered around the origin. Next compute the covariance matrix of the data one wants to do PCA on. Finally compute the Eigenvectors of the centered matrix and then normalize the vectors to get unit-length vectors. First vector corresponds to the direction of the highest variance. The k-th normalized eigenvector corresponds to the k-th principle component.
+
+If I'm not mistaken this method is the best method to reduce the dimensionality of a set of vectors with smallest loss, since we extract the k most significant directions of variance to describe the dataset with k<\<n vectors. I think it's also the best linear approach to minimize a loss given one has to compress the data by reducing it down to k dimensions. (That's what I remember from the courses xd)

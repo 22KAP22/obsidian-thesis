@@ -1,0 +1,5 @@
+[[Hierarchical Navigable Small World (HNSW)]]
+
+It's interesting to see the performance of HNSW. For the SIFT1M it performs quite well at least the FLAT implementation. It answers 10k queries in ~2.4s with a recall of above 90% for 99.19% of the queries with k=40, efSearch=128, efConstruction = 32, M = 128.
+As expected HNSWPQ performs a lot worse than the flat version, but is a lot faster, almost double the speed for similar parameters, I think. But the precision falls off tremendously. Only 2.5% of the queries get a recall better than 90%.
+I wonder how to properly do the benchmarking. If I want to have plots for recall@k for different percentages, what exactly would I be plotting there? The supervisors told me to do QPS, but as seen not all queries achieve the precision that is needed to be ploted. Should only queries be considered that achieve these recalls? Or how exactly should I go on about this given a query set?

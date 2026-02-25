@@ -1,0 +1,3 @@
+Product Quantization is a method to compress/quantize a vector by splitting up a vector by b bits and then computing k-means over a dataset of each b bits slice. Each centroid of each slice gets an ID. The PQ'ed vectors then contain the ID of the closest centroid for each b bits slice.
+
+The idea is quite simple. The goal of this quantization technique is to get rid of dimensions by replacing multiple dimensions of a vector with an ID of a centroid. During search only these IDs are inspected, when two vectors share a centroid, then they are considered near at those coordinates. Most of the time this will result in a candidates set which in the end will be inspected with the full-precision vectors again (Re-Ranking).

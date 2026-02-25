@@ -1,0 +1,8 @@
+(https://dl.acm.org/doi/10.1145/3725333)
+PDX is a way to store the vectors. The idea is similar to PAX in conventional databases. Instead of storing the vectors in a row-major or column-major fashion, both ideas are mixed together. Each page contains x<\<n vectors(where n = number of vectors in dataset) (vectors are structured data, so they can fit storage very nicely) which then again are stored in column-major inside the page. So first we have the first coordinate of all the x vectors consecutively in memory, then all second coordinates of the x vectors, etc. It's important that the vectors fitst get 
+
+The idea is to speed up the retrieval of data and nicely align the data to be used for SIMD instructions. Pruning techniques are also used to skip coordinates during distance computation, which speeds up the search. This can be combined with any sort of index/dimension reduction/quantization technique.
+
+The project is still in development. They make heavily use of IVF indexes, since PDX is designed to optimize this scenario. In a blog post they show how they further sped up the search time of both exact and approximate search (I think). Link: **https://www.lkuffo.com/sub-milisecond-similarity-search-with-pdx/
+
+They achieve lower latency by adding another layer of k-means on top of the centroids of the first k-means and then only store a part of the vector columnar and the rest row-major. The idea is to find clusters faster by introducing another k-means on top of the centroids (?) and then do the pruning with the first few dimensions, and quickly compute the exact distance with the row-major stored coordinates. This way they align the memory nicely for parallel pruning and then speeding up the distance calculation.

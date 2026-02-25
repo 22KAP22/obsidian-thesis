@@ -1,0 +1,3 @@
+IFV is a clustering index. It uses k-means (I think?) to compute centroids. Each vector will then be assigned to 2 or 3 centroids. When a query comes in, the centroids to which it would be assigned get computed and each vector of these clusters will be taken as a candidate to do a normal search on.
+
+This technique is quite simple. It focuses on grouping the vectors together. The nice thing about this is that it's easy to include new vectors, since the closest centroids to the new vector need to be evaluated for it to be inserted. Though one has to be cautious. If too many vectors are inserted the distribution might change and the old centroids are not representative of the data anymore.
