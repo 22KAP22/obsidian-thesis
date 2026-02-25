@@ -8,13 +8,14 @@ What I want to show:
 	- start combining methods?
 
 
-Experiments setup:
+Experiments setup + questions:
 - Normalized dataset
 - No multithreading/ only 1 thread
 - Search queries are transformed before search/isn't included in time measurement
 - Only measuring search call. Note it's the python binding we're calling. Overhead from python to C++ is included.
 - Only L2 distance, though if dataset is normalized this shouldn't be an issue.
 - Only FAISS? Or should I create multiple 'baselines'. I guess this depends on what the novel techniques build upon. For example Panorama and PDX build on top of FAISS -> makes sense to have FAISS as a baseline.
+- Using the PDX benchmark suite, is that ok? Should I create my own? Maybe even use multiple ones?
 
 
 Thesis Questions:
