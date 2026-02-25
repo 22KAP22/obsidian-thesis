@@ -1,12 +1,23 @@
-	Do we care about max performance?
+What I want to show:
+- Results PDX vs. FAISS (both vanilla ivf and ivf+sq8)
+- Results PCA for vanilla IVF on FAISS
+- Currently running benchmark for PQ8 on IVF FAISS
+- Next:
+	- Panorama (faiss or author's implementation?)
+	- Matryoshka (have to look into it)
+	- start combining methods?
 
-I assume it's enough to focus on consistent results and comparing methods in such an environment. (Question came up when deciding what python version using. Also number of threads allowed during search.)
 
-	Benchmarking settings in general.
+Experiments setup:
+- Normalized dataset
+- No multithreading/ only 1 thread
+- Search queries are transformed before search/isn't included in time measurement
+- Only measuring search call. Note it's the python binding we're calling. Overhead from python to C++ is included.
+- Only L2 distance, though if dataset is normalized this shouldn't be an issue.
+- Only FAISS? Or should I create multiple 'baselines'. I guess this depends on what the novel techniques build upon. For example Panorama and PDX build on top of FAISS -> makes sense to have FAISS as a baseline.
 
-How should I conduct the experiments? Multithreaded? Normalized datasets? Queries transformed before search or during? Only L2 distance or cosine and IP too? How many methods combining (for example is PCA with PDX needed)? Different systems or FAISS enough (how should we compare results then if we end up using different systems? any result to any or only results on system x against results on the same system x)? 
 
-
-	What should I focus on when writing my notes?
-
-This is more about what do I end up writing in my thesis? What will be the bulk of the work? Explaining all the methods and how we used them or rather analyzing the results? Different processes/methods we went through or only the ones that created the best results?
+Thesis Questions:
+- What should I note down? What do I need to write in my thesis in the end?
+- For example how thoroughly do the processes in the experiments need to be noted down? Each method will bring its own problems with how we handle data, etc. does this need to be mentioned in the thesis?
+- Focus more on 'good' results? Or treat all results the same?
