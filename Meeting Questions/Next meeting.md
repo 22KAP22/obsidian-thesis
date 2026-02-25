@@ -11,6 +11,7 @@ What I want to show:
 Experiments setup + questions:
 - Normalized dataset
 - No multithreading/ only 1 thread
+- Only 1 run per dataset + nprobe
 - Search queries are transformed before search/isn't included in time measurement
 - Only measuring search call. Note it's the python binding we're calling. Overhead from python to C++ is included.
 - Only L2 distance, though if dataset is normalized this shouldn't be an issue.
