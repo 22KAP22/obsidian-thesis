@@ -1,3 +1,7 @@
 Panorama is a method to concentrate the Energy of vectors in a dataset in its first dimensions by a length preserving transformation(if I'm not mistaken). The goal is to prune vectors early during search by inspecting the first few dimensions. Since these hold the most energy (Most energy in first dimension with exponential decay) it should be very early on clear if a vector is somewhat close or far away of a query during search.
 
 This is done by training a model which finds this matrix given a dataset. The starting point is the PCA of the dataset to be transformed.
+
+2026-03-26
+
+In contrast to PCA, Panorama's transformation matrix T tries to find the best rotation, such that every datapoint in a dataset has high energy in the early dimensions. The difference to PCA is that PCA maximizes energy in the first dimensions on average for the entire dataset. This means different vectors may have different energy distributions across the dimensions. This leads to not so good pruning decisions being made, whereas Panorama's approach tries to guarantee more consistent results. By preserving orthogonality the transformed vectors still have the same distances between them. This means the exact distance between any two points is exactly the same.
