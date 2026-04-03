@@ -10,6 +10,7 @@
 	- Latency use global stats in faiss.
 	- When multi-threading introduced probably fall back to measuring time between index.search call
 	- Does it make sense to introduce nprobe=index.nlist to see what the max recall of a method on a dataset can be? ('measuring the irreducible approximation error of each ANN representation, independent of search budget')
+	- I noticed that I transform all the queries for PCA myself and don't count that towards search time, whereas IVF OPQ the transformation of the query vector is part of the search, which we measure. I need to be consistent. I suppose letting index transform makes more sense. What's your thought?
 
 - Matryoshka
 	- I would like to do that, but still need to decide which dataset to use.
