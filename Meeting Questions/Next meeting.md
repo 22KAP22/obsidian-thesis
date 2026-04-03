@@ -1,6 +1,7 @@
 -Ask about the use of GenAI. I am using it somewhat. Most of the time to ask/discuss stuff. Sometimes for code snippets. Especially useful to me when writing text.
 
 - benchmarking:
+	- Should the datasets always be normalized? When yes, when no?
 	- How many runs for one experiment?
 	- How many nprobe? I think I used too much in first experiments.
 	- Warm-up cache? Do a run before? For all nprobes or only before first?
