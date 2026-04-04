@@ -20,6 +20,7 @@
 	- I used PCA with ||TPCA(x) - TPCA(q)|| ≈ ||x - q|| where TPCA stands for applying PCA and then truncating the vector. The idea was that PCA transforms the vector in such a way that max variance dimension first, then second, ..., this would mean last dimensions should on average contribute the least to the distance between any two points in the set.
 	- NOTE FOR ABOVE: ||TPCA(x) - TPCA(q)|| ≈ ||x - q||  doesn't even have to hold. What's important is that the ranking stays the same. So even if ||TPCA(x) - TPCA(q)|| = C * ||x - q|| it's only important that constant C stays the same for every x ∈ dataset. This way the ranking should stay the same.
 	- Would be nice to use PCA in Panorama, but I think they already do that in their paper, since their idea is to start with PCA and find a better transformation, that shifts energy towards first dimensions for all vectors, not on average for entire dataset.
+	- combine these rim reduction methods with quantization, maybe even with pruning possible, not sure
 
 - What methods are applicable to other indexes?
 	- PDX no shot. PDX shines by predicting how memory is accessed. For graph- or tree-based it's unclear which path is taken. Lots of jumps in memory -> SIMD killer.
