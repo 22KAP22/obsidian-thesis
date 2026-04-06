@@ -1,16 +1,22 @@
 -Ask about the use of GenAI. I am using it somewhat. Most of the time to ask/discuss stuff. Sometimes for code snippets. Especially useful to me when writing text.
 
 - benchmarking:
-	- Should the datasets always be normalized? When yes, when no?
+	- Should the datasets always be normalized? Somewhat necessary, since we use only L2 metric. PDX only capable of that/optimized only for that.
+		- will prob keep normalizing,. maybe check if makes difference between normalized and non-normalized?
 	- How many runs for one experiment?
+		- I use 3-5 now
 	- How many nprobe? I think I used too much in first experiments.
+		- If we want to reach certain nprobe, then start low and increase until hit
+		- I like the idea to inspect the same fraction of the dataset for all datasets. Instead of constant nprobes, start with 1/8 of the nlist and then half it until we hit 2 by integer division or something similar.
 	- Warm-up cache? Do a run before? For all nprobes or only before first?
-	- If full warm-up, compute recall there ok?
+		- Warm-up needed I suppose. It's supposed to load data-structure for search into cache, so maybe only for big nprobe needed?
+		- If warm-up for all nprobe, compute recall there instead of in another loop at the end?
 	- Should I reorder queries and/or nprobes between runs?
 	- Latency use global stats in faiss.
 	- When multi-threading introduced probably fall back to measuring time between index.search call
 	- Does it make sense to introduce nprobe=index.nlist to see what the max recall of a method on a dataset can be? ('measuring the irreducible approximation error of each ANN representation, independent of search budget')
 	- I noticed that I transform all the queries for PCA myself and don't count that towards search time, whereas IVF OPQ the transformation of the query vector is part of the search, which we measure. I need to be consistent. I suppose letting index transform makes more sense. Do both to see difference? What's your thought?
+		- I opted for the index_factory for all indexes. This includes transformations of the query in the search call.
 
 - Matryoshka
 	- I would like to do that, but still need to decide which dataset to use.
