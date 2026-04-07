@@ -1,6 +1,9 @@
 -Ask about the use of GenAI. I am using it somewhat. Most of the time to ask/discuss stuff. Sometimes for code snippets. Especially useful to me when writing text.
 
 - benchmarking:
+	- Can't use Python PAPI. 'pypapi.exceptions.PapiPermissionError: Permission level does not permit operation. (PAPI_EPERM)'
+	  'cat /proc/sys/kernel/perf_event_paranoid -> 4'
+	  No root level permissions to change
 	- Should the datasets always be normalized? Somewhat necessary, since we use only L2 metric. PDX only capable of that/optimized only for that.
 		- will prob keep normalizing,. maybe check if makes difference between normalized and non-normalized?
 	- How many runs for one experiment?
