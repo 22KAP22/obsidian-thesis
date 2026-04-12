@@ -9,7 +9,10 @@ Note most, if not all these variants of search are assumed to be faster than bas
 
 
 ### Flat
-+++Flat - baseline
+	- Nlist, what nlist achieves low latency?
+	- what nlist for IVF2 achieves low latency?
+(reuse these values for all other indexes)
+
 
 ### Quantizer
 ##### ==PQ== - quantizer, less memory used
